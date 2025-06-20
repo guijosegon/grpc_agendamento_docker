@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package booking.user;
+
+service UserService {
+  rpc CreateUser (CreateUserRequest) returns (UserResponse);
+  rpc Authenticate (Credentials) returns (AuthToken);
+}
+
+message CreateUserRequest {
+  string name  = 1;
+  string email = 2;
+  string pwd   = 3;
+}
+
+message UserResponse {
+  int64  user_id = 1;
+  string name    = 2;
+  string email   = 3;
+}
+
+message Credentials {
+  string email = 1;
+  string pwd   = 2;
+}
+
+message AuthToken {
+  string token  = 1;
+  int64 expires = 2;
+}

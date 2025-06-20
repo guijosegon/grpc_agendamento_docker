@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package booking.schedule;
+
+service ScheduleService {
+  rpc CreateReservation (CreateReservationRequest) returns (ReservationResponse);
+  rpc CancelReservation (CancelRequest) returns (CancelResponse);
+  rpc ListReservations (ListReservationsRequest) returns (ListReservationsResponse);
+  rpc StreamReservations (StreamReq) returns (stream ReservationResponse);
+  rpc UploadAttachment (stream FileChunk) returns (UploadAck);
+  rpc DownloadAttachment (AttachmentRequest) returns (stream FileChunk);
+}
+
+message ReserveRequest {
+  int64 user_id = 2;
+}
+
+message ListReservationsRequest {
+  int64 user_id = 1;
+}
+
+message ListReservationsResponse {
+  repeated ReservationResponse reservations = 1;
+}
+
+message CreateReservationRequest {
+string start_time = 1;
+string end_time = 2;
+int64 user_id = 3;
+string description = 4;
+}
+
+message ReservationResponse {
+int64 reservation_id = 1;
+string start_time = 2;
+string end_time = 3;
+int64 user_id = 4;
+string status = 5;
+string description = 6;
+}
+
+message CancelRequest {
+  int64 reservation_id = 1;
+}
+
+message CancelResponse {
+  bool success = 1;
+}
+
+message StreamReq {
+  int64 user_id = 1;
+}
+
+message FileChunk {
+  string filename = 1;
+  bytes data = 2;
+}
+
+message UploadAck {
+  bool success = 1;
+  string message = 2;
+}
+
+message AttachmentRequest {
+  string filename = 1;
+}

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package booking.notify;
+
+service NotificationService {
+  rpc SendNotification (Notification) returns (Ack);
+}
+
+message Notification {
+  int64  user_id  = 1;
+  string message  = 2;
+}
+
+message Ack {
+  bool sent = 1;
+}

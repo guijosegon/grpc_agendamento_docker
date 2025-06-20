@@ -52,3 +52,72 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# Visual Studio
+.vs/
+\*.user
+\*.suo
+\*.userosscache
+\*.sln.docstates
+
+# Build results
+/bin/
+/obj/
+\*\*/bin/
+\*\*/obj/
+
+# Rider
+.idea/
+\*.sln.iml
+
+# Visual Studio Code
+.vscode/
+settings.json
+
+# DotNet
+\*.dll
+\*.exe
+\*.log
+\*.vsix
+
+# User-specific files
+\*.user
+*.user.*
+\*.suo
+\*.ntvs\_analysis.dat
+\*.njsproj.user
+
+# Auto-generated files
+\*.g.cs
+\*.pb.cs
+
+# NuGet
+\*.nupkg
+\*.snupkg
+packages/
+.nuget/
+
+# Logs
+logs/
+\*.log
+
+# Docker
+docker-compose.override.yml
+.env
+
+# Optional lock files
+project.lock.json
+
+# Node
+node\_modules/
+# Certificates
+
+Certificates/
+# Docker volumes
+
+\*\*/\*-data/
+# Mac
+.DS\_Store
+
+# Linux
+'thumbs.db'
